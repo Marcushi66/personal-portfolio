@@ -5,7 +5,7 @@ let commitsGlobal = []
 
 // Load and parse the CSV data
 async function loadData() {
-  const raw = await d3.csv('loc.csv');
+  const raw = await d3.csv('./loc.csv');
   const data = raw.map(row => ({
     ...row,
     line: Number(row.line),
