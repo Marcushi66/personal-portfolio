@@ -341,3 +341,15 @@ html { color-scheme: light dark; }
   margin-bottom: 1rem;
   margin-top: 0.6rem;
 }
+
+
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.4;
+}
+
+.gridlines path {
+  display: none;
+}
+
+
