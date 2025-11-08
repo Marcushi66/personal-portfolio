@@ -109,7 +109,18 @@ function renderScatterPlot(commits) {
     .attr('cx', d => xScale(d.datetime))
     .attr('cy', d => yScale(d.hourFrac))
     .attr('r', 5)
-    .attr('fill', 'steelblue');
+    .attr('fill', 'steelblue')
+    .on('mouseenter', (event, commit) => {
+      renderTooltipContent(commit);
+      updateTooltipVisibility(true);
+      updateTooltipPosition(event);
+    })
+    .on('mousemove', (event) => {
+      updateTooltipPosition(event);
+    })
+    .on('mouseleave', () => {
+      updateTooltipVisibility(false);
+    });
 
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale)
@@ -135,6 +146,49 @@ function renderScatterPlot(commits) {
       .tickSize(-usableArea.width)
 );
 }
+
+
+// Tooltip content update
+function renderTooltipContent(commit = {}) {
+  const link = document.getElementById('commit-link');
+  const date = document.getElementById('commit-date');
+  const author = document.getElementById('commit-author');
+  const lines  = document.getElementById('commit-lines');
+
+  if (author) author.textContent = commit.author ?? '';
+  if (lines)  lines.textContent  = commit.totalLines ?? '';
+  if (!commit || Object.keys(commit).length === 0) return;
+
+  link.href = commit.url;
+  link.textContent = commit.id;
+
+  date.textContent = commit.datetime?.toLocaleString('en', {
+    dateStyle: 'full',
+    timeStyle: 'short'
+  }) ?? '';
+}
+
+function updateTooltipVisibility(isVisible) {
+  const tooltip = document.getElementById('commit-tooltip');
+  tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+  const tooltip = document.getElementById('commit-tooltip');
+  const offset = 14;
+  let x = event.clientX + offset;
+  let y = event.clientY + offset;
+
+  const rect = tooltip.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth;
+  const vh = document.documentElement.clientHeight;
+  if (x + rect.width + 8 > vw)  x = vw - rect.width - 8;
+  if (y + rect.height + 8 > vh) y = vh - rect.height - 8;
+
+  tooltip.style.left = `${x}px`;
+  tooltip.style.top  = `${y}px`;
+}
+
 
 const data = await loadData();
 const commits = processCommits(data);
