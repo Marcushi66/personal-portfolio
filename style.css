@@ -296,3 +296,48 @@ html { color-scheme: light dark; }
   display: inline-block;
   margin-right: .5rem;
 }
+
+
+/* ===== Meta summary stats ===== */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  margin-top: 32px;
+}
+
+.stats dt,
+.stats dd {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.stats dt {
+  font-size: 11px;
+  color: rgba(0,0,0,.45);
+  margin-bottom: 4px;
+}
+
+.stats dd {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+#stats-wrapper {
+  border: 1.5px solid #e1e4e8;
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  margin-top: 1rem;
+  background: var(--color-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Title: Summary */
+#stats-wrapper h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 0.6rem;
+}
