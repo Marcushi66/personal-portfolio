@@ -2,7 +2,7 @@
     {
         "title": "Boston Bluebikes Visualization",
         "year": "2025",
-        "image": "images/project-bikewatching.png",
+        "image": "https://marcushi66.github.io/personal-portfolio/images/project-bikewatching.png",
         "description": "An interactive Mapbox + D3 visualization showing real-time Bluebikes traffic across Boston. Features time filtering, traffic flow colors, and a custom legend."
     },
     {
