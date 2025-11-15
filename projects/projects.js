@@ -123,3 +123,4 @@ function renderPieAndLegend(projectsGiven) {
   renderPieChart(pieData);
   renderLegend(pieData);
 }
+

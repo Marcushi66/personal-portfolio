@@ -437,3 +437,29 @@ circle.selected {
 }
 
 .lang.is-zero { opacity: .45; }
+
+/* ===== Project Link Button ===== */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #4f46e5;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #eef2ff;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.project-link:hover {
+  background: #e0e7ff;
+  transform: translateX(3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.project-link::after {
+  content: "➜";
+  font-size: 1.1rem;
+}
