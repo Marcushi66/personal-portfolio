@@ -1,9 +1,9 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime accusantium perspiciatis hic esse ab minima pariatur consequuntur quibusdam, dolorum aliquid repudiandae magni quia corporis tenetur expedita mollitia, nesciunt aut saepe?"
+        "title": "Boston Bluebikes Visualization",
+        "year": "2025",
+        "image": "images/bikewatching.png",
+        "description": "An interactive Mapbox + D3 visualization showing real-time Bluebikes traffic across Boston. Features time filtering, traffic flow colors, and a custom legend."
     },
     {
         "title": "Tenetur sed cumque error?",
