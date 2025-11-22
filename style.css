@@ -463,3 +463,14 @@ circle.selected {
   content: "➜";
   font-size: 1.1rem;
 }
+
+/* ===== Scatter Plot Animation ===== */
+circle {
+  transition: all 300ms ease;
+}
+
+@starting-style {
+  circle {
+    r: 0;
+  }
+}

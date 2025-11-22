@@ -13,7 +13,11 @@
     <p>This page includes stats about the code of this website.</p>
 
     <div id="stats-wrapper">
-        <h2>Summary</h2>
+        <div style="margin-top: 20px; display: flex; align-items: center;">
+          <label for="commit-progress">Show commits until:&nbsp;</label>
+          <input id="commit-progress" type="range" min="0" max="100" value="100" style="flex: 1;">
+          <time id="commit-time" style="margin-left: auto;">Loading…</time>
+        </div>
         <div id="stats"></div>
     </div>
 
