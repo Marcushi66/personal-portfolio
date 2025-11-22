@@ -7,6 +7,7 @@ let visibleCommits = [];
 let timeScale;
 let commitProgress = 100;
 let commitMaxTime;
+const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Data Loading & Processing
 async function loadData() {
@@ -292,7 +293,7 @@ function renderLanguageBreakdown(selection, selectedCommits) {
 
   const total = lines.length;
   const items = Array.from(roll, ([lang, count]) => ({ lang, count }));
-  items.sort((a, b) => d3.ascending(a.lang, b.lang));   // 固定按字母顺序
+  items.sort((a, b) => d3.ascending(a.lang, b.lang));
 
   container.innerHTML = '';
   for (const { lang, count } of items) {
@@ -302,6 +303,34 @@ function renderLanguageBreakdown(selection, selectedCommits) {
       <dd>${count} lines (${pct})</dd>
     `;
   }
+}
+
+// Update File Display
+function updateFileDisplay(filteredCommits) {
+  const lines = filteredCommits.flatMap(d => d.lines);
+  let files = d3.groups(lines, d => d.file)
+    .map(([name, lines]) => ({ name, lines }))
+    .sort((a, b) => b.lines.length - a.lines.length);
+
+  const filesContainer = d3.select('#files')
+    .selectAll('div')
+    .data(files, d => d.name)
+    .join(enter => {
+      const div = enter.append('div');
+      div.append('dt').append('code');
+      div.append('dd');
+      return div;
+    });
+
+  filesContainer.select('dt code')
+  .html(d => `${d.name}<br><small>${d.lines.length} lines</small>`);
+
+  filesContainer.select('dd')
+    .selectAll('div')
+    .data(d => d.lines)
+    .join('div')
+    .attr('class', 'loc')
+    .style('background', d => colors(d.type)); 
 }
 
 // Initialize Slider UI
@@ -337,6 +366,7 @@ function onTimeSliderChange() {
   updateScatterPlot(filtered);
   renderSelectionCount(null);
   renderLanguageBreakdown(null, []);
+  updateFileDisplay(filtered);
 }
 
 // Main
@@ -355,4 +385,5 @@ commitMaxTime = timeScale.invert(commitProgress);
 renderCommitInfo(data, commits);
 initSliderUI();
 renderScatterPlot(commits);
+updateFileDisplay(allCommits);
 
