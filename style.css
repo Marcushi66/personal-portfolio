@@ -492,8 +492,10 @@ circle {
 }
 
 .loc {
+  display: flex;
   width: 0.5em;
   aspect-ratio: 1;
+  background: steelblue;
   border-radius: 50%;
 }
 
@@ -506,4 +508,34 @@ circle {
   gap: 0.15em;
   padding-top: 0.6em;
   margin-left: 0;
+}
+
+/* ===== Scatter Plot with Scrolly-Telling ===== */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+#scatter-story .step {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 38rem;
 }

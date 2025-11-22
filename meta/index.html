@@ -13,18 +13,36 @@
     <p>This page includes stats about the code of this website.</p>
 
     <div id="stats-wrapper">
-        <div style="margin-top: 20px; display: flex; align-items: center;">
-          <label for="commit-progress">Show commits until:&nbsp;</label>
-          <input id="commit-progress" type="range" min="0" max="100" value="100" style="flex: 1;">
-          <time id="commit-time" style="margin-left: auto;">Loading…</time>
-        </div>
-        <dl id="files"></dl>
+        <h2>Summary</h2>
         <div id="stats"></div>
     </div>
 
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
+    <div id="scrolly-1">
+      <div id="scatter-story"></div>
+
+      <div id="scatter-plot">
+        <h2>Commits by time of day</h2>
+        <div id="chart"></div>
+
+        <section id="selection-panel" class="panel">
+          <p id="selection-count" class="sel-count">No commits selected</p>
+          <div id="language-breakdown" class="breakdown-grid"></div>
+        </section>
+      </div>
+    </div>
+
+    <section id="codebase-evolution">
+      <h2>Codebase evolution</h2>
+      <div style="margin-top: 20px; display: flex; align-items: center;">
+        <label for="commit-progress">Show commits until:&nbsp;</label>
+        <input id="commit-progress" type="range" min="0" max="100" value="100" style="flex: 1;">
+        <time id="commit-time" style="margin-left: auto;">Loading…</time>
+      </div>
+      <dl id="files"></dl>
+    </section>
+
   </main>
+
 
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
@@ -36,11 +54,6 @@
     <dt>Lines</dt>
     <dd id="commit-lines">—</dd>
   </dl>
-
-  <section id="selection-panel" class="panel">
-    <p id="selection-count" class="sel-count">No commits selected</p>
-    <div id="language-breakdown" class="breakdown-grid"></div>
-  </section>
   
   <script type="module" src="./main.js"></script>
   <script type="module" src="../global.js"></script>
