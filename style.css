@@ -491,6 +491,10 @@ circle {
   grid-column: 1;
 }
 
+#files dt code {
+  font-weight: bold;
+}
+
 .loc {
   display: flex;
   width: 0.5em;
