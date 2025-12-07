@@ -7,10 +7,11 @@
         "url": "https://marcushi66.github.io/bikewatching/"
     },
     {
-        "title": "Tenetur sed cumque error?",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Itaque autem error, nobis nam porro consequatur laudantium, ullam molestias tenetur atque similique provident in deserunt odio iusto laborum asperiores expedita voluptates corporis quidem hic accusamus voluptatum? Delectus, ea molestias."
+        "title": "What Determines Victory in League of Legends?",
+        "year": "2025",
+        "image": "https://marcushi66.github.io/personal-portfolio/images/project-lol.png",
+        "description": "An interactive D3-based explorable explanation analyzing early-game advantages in professional League of Legends. Features a clickable Rift map, dynamic win-rate visualizations, and a logistic regression simulator for predicting victory.",
+        "url": "https://haoshuobi.github.io/dsc106-final-double-double/"
     },
     {
         "title": "Excepturi, deserunt ad. Iure.",
